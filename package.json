@@ -1,0 +1,25 @@
+{
+  "name": "ostad-project-_1",
+  "version": "1.0.0",
+  "description": "Welcome to my Software Quality Assurance (SQA) portfolio project. This repository contains a complete, end-to-end QA assessment covering Web UI testing, API test design, Database testing, and Exploratory defect reporting for AI-based applications (Claude.ai & Thaura.ai).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server -p 8080 -c-1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Atef123Ahabab/sqa-testing-arsenal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Atef123Ahabab/sqa-testing-arsenal/issues"
+  },
+  "homepage": "https://github.com/Atef123Ahabab/sqa-testing-arsenal#readme",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

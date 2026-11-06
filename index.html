@@ -44,16 +44,19 @@
         .report-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
         .report-card { background: var(--card-bg); padding: 24px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; gap: 16px; }
         .report-card h4 { font-size: 1.1rem; color: var(--text-main); }
-        .btn { padding: 12px 16px; border-radius: 8px; text-decoration: none; font-size: 0.9rem; font-weight: 600; text-align: center; transition: all 0.2s; cursor: pointer; border: none; }
+        .btn { padding: 12px 16px; border-radius: 8px; text-decoration: none; font-size: 0.9rem; font-weight: 600; text-align: center; transition: all 0.2s; cursor: pointer; border: none; display: block; }
         .btn-primary { background: var(--primary); color: white; }
         .btn-primary:hover { background: var(--primary-hover); }
-        .btn-download { background: #f1f5f9; color: var(--text-main); border: 1px solid var(--border); }
-        .btn-download:hover { background: #e2e8f0; }
 
-        /* Embedded PDF Viewer */
+        /* PDF Viewer */
         .pdf-viewer { width: 100%; height: 70vh; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; display: none; margin-top: 20px; background: #525659; }
         iframe { width: 100%; height: 100%; border: none; }
         .back-btn { display: none; margin-bottom: 20px; background: var(--text-main); color: white; padding: 10px 20px; border-radius: 6px; cursor: pointer; border: none; font-weight: bold; }
+
+        /* Image Gallery for Screenshots */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; margin-top: 20px; }
+        .gallery img { width: 100%; height: auto; border-radius: 8px; border: 1px solid var(--border); cursor: pointer; transition: transform 0.2s; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .gallery img:hover { transform: scale(1.05); border-color: var(--primary); }
     </style>
 </head>
 <body>
@@ -69,6 +72,7 @@
             <li><a class="nav-link" data-target="web-testing">🌐 Web UI Testing</a></li>
             <li><a class="nav-link" data-target="api-testing">🔌 API Testing</a></li>
             <li><a class="nav-link" data-target="db-testing">🗄️ Database Testing</a></li>
+            <li><a class="nav-link" data-target="sql-screenshots">📸 SQL Screenshots Gallery</a></li>
         </ul>
     </nav>
 
@@ -79,6 +83,7 @@
         </header>
 
         <div class="content-body">
+            
             <!-- HOME -->
             <section id="home" class="section active">
                 <div class="overview-grid">
@@ -95,34 +100,30 @@
                         <p>MySQL testing for a SaaS schema. Includes CRUD, Foreign Keys, CASCADE deletes, and Transaction rollbacks.</p>
                     </div>
                 </div>
-                <div class="card" style="border-top-color: #6366f1;">
-                    <h3>ℹ️ Interactive Project Dashboard</h3>
-                    <p>Welcome to the interactive QA portfolio. Use the sidebar to navigate through different testing phases. Clicking "View PDF" will open the reports directly inside this window so you can read them without downloading!</p>
-                </div>
             </section>
 
             <!-- WEB TESTING -->
             <section id="web-testing" class="section">
-                <button class="back-btn" onclick="closePdf()">← Back to Reports</button>
+                <button class="back-btn" onclick="closePdf('web')">← Back to Reports</button>
                 <div class="report-grid" id="web-reports-grid">
                     <div class="report-card">
                         <h4>Final Test Summary</h4>
                         <p style="font-size:0.85rem; color:#64748b;">The Go/No-Go recommendation and top risks found during scripted testing.</p>
-                        <button onclick="openPdf('Part C — Exploratory Testing & Defect Reporting.pdf')" class="btn btn-primary">View PDF</button>
+                        <button onclick="openPdf('web', 'Part_C_Report.pdf')" class="btn btn-primary">View PDF</button>
                     </div>
                     <div class="report-card">
                         <h4>Bug Reports</h4>
                         <p style="font-size:0.85rem; color:#64748b;">Detailed documentation of the 4 bugs found during the 60-minute exploratory session.</p>
-                        <button onclick="openPdf('bug report .pdf')" class="btn btn-primary">View PDF</button>
+                        <button onclick="openPdf('web', 'bug_report.pdf')" class="btn btn-primary">View PDF</button>
                     </div>
                     <div class="report-card">
                         <h4>Test Cases & Scenarios</h4>
                         <p style="font-size:0.85rem; color:#64748b;">The scripted test cases covering authentication, core chat, and response controls.</p>
-                        <button onclick="openPdf('ClaudeAI_Test_Scenarios_TestCases.pdf')" class="btn btn-primary">View PDF</button>
+                        <button onclick="openPdf('web', 'ClaudeAI_Test_Scenarios_TestCases.pdf')" class="btn btn-primary">View PDF</button>
                     </div>
                 </div>
-                <div class="pdf-viewer" id="pdf-container">
-                    <iframe id="pdf-frame" src=""></iframe>
+                <div class="pdf-viewer" id="pdf-container-web">
+                    <iframe id="pdf-frame-web" src=""></iframe>
                 </div>
             </section>
 
@@ -132,33 +133,70 @@
                     <div class="report-card">
                         <h4>API Test Design (Excel)</h4>
                         <p style="font-size:0.85rem; color:#64748b;">17 designed test cases covering Positive, Auth, Validation, Rate Limiting with simulated outputs.</p>
-                        <a href="Q3B_API_Test_Design (1).xlsx" download class="btn btn-download">Download Excel</a>
+                        <a href="Q3B_API_Test_Design.xlsx" download class="btn btn-primary">Download Excel</a>
                     </div>
                     <div class="report-card">
                         <h4>Postman Collection</h4>
                         <p style="font-size:0.85rem; color:#64748b;">The exported JSON collection to import into Postman for API execution.</p>
-                        <a href="Api testing.postman_collection.json" download class="btn btn-download">Download JSON</a>
+                        <a href="Api testing.postman_collection.json" download class="btn btn-primary">Download JSON</a>
                     </div>
                 </div>
             </section>
 
             <!-- DB TESTING -->
             <section id="db-testing" class="section">
-                <button class="back-btn" onclick="closePdf()">← Back to Reports</button>
+                <button class="back-btn" onclick="closePdf('db')">← Back to Reports</button>
                 <div class="report-grid" id="db-reports-grid">
                     <div class="report-card">
                         <h4>SQL Test Script</h4>
                         <p style="font-size:0.85rem; color:#64748b;">The complete SQL queries and results for schema inspection, CRUD, and Transactions.</p>
-                        <button onclick="openPdf('Question 2 — Database Testing answer script.pdf')" class="btn btn-primary">View PDF</button>
+                        <button onclick="openPdf('db', 'Question_2_DB.pdf')" class="btn btn-primary">View PDF</button>
                     </div>
                     <div class="report-card">
                         <h4>Database Setup Script</h4>
                         <p style="font-size:0.85rem; color:#64748b;">Python script to drop, recreate, and seed the ai_saas_db MySQL schema.</p>
-                        <a href="setup_database.py" download class="btn btn-download">Download .py File</a>
+                        <a href="setup_database.py" download class="btn btn-primary">Download .py File</a>
                     </div>
                 </div>
                 <div class="pdf-viewer" id="pdf-container-db">
                     <iframe id="pdf-frame-db" src=""></iframe>
+                </div>
+            </section>
+
+            <!-- SQL SCREENSHOTS GALLERY -->
+            <section id="sql-screenshots" class="section">
+                <h3 style="margin-bottom: 10px;">Database Execution Evidence</h3>
+                <p style="color: var(--text-light); margin-bottom: 20px;">These screenshots demonstrate the execution of Primary Key/Foreign Key inspections, Constraint testing (Unique/ENUM), CRUD operations, and Commit/Rollback transactions.</p>
+                
+                <div class="gallery">
+                    <!-- Note: Since the file names have spaces and special characters, we use the URL encoded format or simply the file name if it works locally -->
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.01.44 PM.png" alt="SQL Screenshot 1" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.04.59 PM.png" alt="SQL Screenshot 2" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.07.39 PM.png" alt="SQL Screenshot 3" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.10.39 PM.png" alt="SQL Screenshot 4" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.13.49 PM.png" alt="SQL Screenshot 5" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.16.34 PM.png" alt="SQL Screenshot 6" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.17.27 PM.png" alt="SQL Screenshot 7" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.19.57 PM.png" alt="SQL Screenshot 8" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.22.03 PM.png" alt="SQL Screenshot 9" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.22.26 PM.png" alt="SQL Screenshot 10" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.22.39 PM.png" alt="SQL Screenshot 11" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.22.52 PM.png" alt="SQL Screenshot 12" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.29.30 PM.png" alt="SQL Screenshot 13" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.29.32 PM.png" alt="SQL Screenshot 14" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.38.05 PM.png" alt="SQL Screenshot 15" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.39.05 PM.png" alt="SQL Screenshot 16" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.39.41 PM.png" alt="SQL Screenshot 17" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.39.55 PM.png" alt="SQL Screenshot 18" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.40.05 PM.png" alt="SQL Screenshot 19" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.40.17 PM.png" alt="SQL Screenshot 20" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.40.29 PM.png" alt="SQL Screenshot 21" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.40.38 PM.png" alt="SQL Screenshot 22" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.41.56 PM.png" alt="SQL Screenshot 23" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.42.09 PM.png" alt="SQL Screenshot 24" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.44.35 PM.png" alt="SQL Screenshot 25" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.47.00 PM.png" alt="SQL Screenshot 26" onclick="window.open(this.src)">
+                    <img src="sql_screenshots/Screenshot 2026-06-30 at 7.48.24 PM.png" alt="SQL Screenshot 27" onclick="window.open(this.src)">
                 </div>
             </section>
         </div>
@@ -178,34 +216,33 @@
                 const targetId = this.getAttribute('data-target');
                 document.getElementById(targetId).classList.add('active');
                 pageTitle.textContent = this.textContent.replace(/[^\w\s&]/g, '').trim();
-                closePdf(); // Reset PDF view when changing tabs
+                closePdf('web');
+                closePdf('db');
             });
         });
 
         // PDF Viewer Logic
-        function openPdf(fileUrl) {
-            document.getElementById('web-reports-grid').style.display = 'none';
-            document.getElementById('db-reports-grid').style.display = 'none';
-            document.querySelectorAll('.back-btn').forEach(btn => btn.style.display = 'block');
+        function openPdf(section, fileUrl) {
+            document.getElementById(section + '-reports-grid').style.display = 'none';
+            document.querySelector('#' + section + '-testing .back-btn').style.display = 'block';
             
-            // Determine which section we are in
-            const isWeb = document.getElementById('web-testing').classList.contains('active');
-            const container = isWeb ? document.getElementById('pdf-container') : document.getElementById('pdf-container-db');
-            const frame = isWeb ? document.getElementById('pdf-frame') : document.getElementById('pdf-frame-db');
+            const container = document.getElementById('pdf-container-' + section);
+            const frame = document.getElementById('pdf-frame-' + section);
             
             frame.src = fileUrl;
             container.style.display = 'block';
         }
 
-        function closePdf() {
-            document.getElementById('web-reports-grid').style.display = 'grid';
-            document.getElementById('db-reports-grid').style.display = 'grid';
-            document.querySelectorAll('.back-btn').forEach(btn => btn.style.display = 'none');
+        function closePdf(section) {
+            document.getElementById(section + '-reports-grid').style.display = 'grid';
+            const backBtn = document.querySelector('#' + section + '-testing .back-btn');
+            if(backBtn) backBtn.style.display = 'none';
             
-            document.getElementById('pdf-container').style.display = 'none';
-            document.getElementById('pdf-container-db').style.display = 'none';
-            document.getElementById('pdf-frame').src = '';
-            document.getElementById('pdf-frame-db').src = '';
+            const container = document.getElementById('pdf-container-' + section);
+            if(container) {
+                container.style.display = 'none';
+                document.getElementById('pdf-frame-' + section).src = '';
+            }
         }
     </script>
 </body>
