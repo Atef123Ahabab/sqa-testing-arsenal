@@ -192,183 +192,183 @@
             <div class="gallery-item">
                 <img src="sql_screenshots/sql1.png" alt="SQL Screenshot 1" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Schema Inspection</strong>
-                    Verifying columns and data types for users and usage logs.
+                    <strong>Schema Inspection (DESCRIBE)</strong>
+                    <p>Verifying the columns, data types, and default values for the <code>users</code> and <code>usage_logs</code> tables to ensure they match the design.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql2.png" alt="SQL Screenshot 2" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Primary Keys Check</strong>
-                    Ensuring all 6 tables have a Primary Key for unique row identification.
+                    <strong>Primary Key Verification</strong>
+                    <p>Querying <code>INFORMATION_SCHEMA</code> to confirm that all 6 tables have Primary Keys, guaranteeing unique identification for every row.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql3.png" alt="SQL Screenshot 3" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Foreign Keys Check</strong>
-                    Verifying relational integrity between tables (e.g., messages to sessions).
+                    <strong>Foreign Key Verification</strong>
+                    <p>Ensuring relational integrity by checking that relationships (e.g., <code>messages</code> belonging to <code>chat_sessions</code>) are correctly mapped.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql4.png" alt="SQL Screenshot 4" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Duplicate Email Test</strong>
-                    Negative testing: Attempting to insert a duplicate email to test UNIQUE constraint.
+                    <strong>Negative Test: Duplicate Email</strong>
+                    <p>Attempting to insert an existing email to test the <code>UNIQUE</code> constraint. The database correctly rejects it with Error 1062.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql5.png" alt="SQL Screenshot 5" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Invalid Plan Test</strong>
-                    Negative testing: Attempting to insert a non-existent plan to test ENUM constraint.
+                    <strong>Negative Test: Invalid ENUM Plan</strong>
+                    <p>Attempting to insert a plan called 'platinum' to test the <code>ENUM</code> constraint. The database correctly rejects it with Error 1265.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql6.png" alt="SQL Screenshot 6" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Update User Plan</strong>
-                    CRUD testing: Updating a user's plan to 'pro' and verifying persistence.
+                    <strong>CRUD: Update User Plan</strong>
+                    <p>Executing an <code>UPDATE</code> statement to change a user's plan to 'pro' and verifying the change was successfully saved.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql7.png" alt="SQL Screenshot 7" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>CASCADE Delete Test</strong>
-                    Data integrity: Deleting a user to verify related sessions/messages are also removed.
+                    <strong>Data Integrity: CASCADE Delete</strong>
+                    <p>Deleting a user to ensure related sessions and messages are automatically deleted, preventing orphaned data (ON DELETE CASCADE).</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql8.png" alt="SQL Screenshot 8" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Transaction ROLLBACK</strong>
-                    Testing transaction safety by rolling back a plan change.
+                    <strong>Transaction Testing: ROLLBACK</strong>
+                    <p>Starting a transaction, updating a record, and using <code>ROLLBACK</code> to verify the database correctly undoes uncommitted changes.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql9.png" alt="SQL Screenshot 9" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Transaction COMMIT</strong>
-                    Testing successful transaction saving by committing a plan change.
+                    <strong>Transaction Testing: COMMIT</strong>
+                    <p>Starting a transaction, updating a record, and using <code>COMMIT</code> to verify the database permanently saves the changes.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql10.png" alt="SQL Screenshot 10" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Complex JOIN Query</strong>
-                    Performance testing: Aggregating data across multiple tables for analytics.
+                    <strong>Complex JOIN & Aggregation</strong>
+                    <p>Testing reporting capabilities using <code>LEFT JOIN</code>, <code>GROUP BY</code>, and <code>COUNT</code> to find active sessions and message counts.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql11.png" alt="SQL Screenshot 11" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Test Execution 11</strong>
-                    Additional database execution screenshots and query validations.
+                    <strong>Error: Unknown Column 'revoked_at'</strong>
+                    <p>Attempting to run a query with an incorrect column name. This demonstrates troubleshooting and debugging SQL errors.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql12.png" alt="SQL Screenshot 12" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Test Execution 12</strong>
-                    Additional database execution screenshots and query validations.
+                    <strong>Fixing Query via Schema Check</strong>
+                    <p>Running <code>DESCRIBE api_keys</code> to find the correct column name (status), then successfully running the fixed query.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql13.png" alt="SQL Screenshot 13" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Test Execution 13</strong>
-                    Additional database execution screenshots and query validations.
+                    <strong>Create & Delete User Test</strong>
+                    <p>Setting up test data (user, session, API key) and deleting the user to verify cascading effects across multiple tables.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql14.png" alt="SQL Screenshot 14" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Test Execution 14</strong>
-                    Additional database execution screenshots and query validations.
+                    <strong>Verify Deletion & Data Cleanup</strong>
+                    <p>Querying the related tables after a delete to ensure no orphaned records remain in the database.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql16.png" alt="SQL Screenshot 15" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Test Execution 15</strong>
-                    Additional database execution screenshots and query validations.
+                    <strong>Data Insertion & Validation</strong>
+                    <p>Executing insertion queries and verifying data types and constraints are properly enforced.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql17.png" alt="SQL Screenshot 16" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Test Execution 16</strong>
-                    Additional database execution screenshots and query validations.
+                    <strong>Subscription Management Test</strong>
+                    <p>Inserting subscription data and verifying foreign key constraints are maintained.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql18.png" alt="SQL Screenshot 17" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Test Execution 17</strong>
-                    Additional database execution screenshots and query validations.
+                    <strong>API Key Status Verification</strong>
+                    <p>Querying API keys to verify status and ownership details.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql19.png" alt="SQL Screenshot 18" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Test Execution 18</strong>
-                    Additional database execution screenshots and query validations.
+                    <strong>User & Subscription Join</strong>
+                    <p>Joining users and subscriptions tables to verify relational data reporting.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql20.png" alt="SQL Screenshot 19" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Test Execution 19</strong>
-                    Additional database execution screenshots and query validations.
+                    <strong>Complex Query Testing</strong>
+                    <p>Running advanced queries to test database performance and data consistency.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql21.png" alt="SQL Screenshot 20" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Test Execution 20</strong>
-                    Additional database execution screenshots and query validations.
+                    <strong>Message History Query</strong>
+                    <p>Retrieving message history and verifying correct session associations.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql22.png" alt="SQL Screenshot 21" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Test Execution 21</strong>
-                    Additional database execution screenshots and query validations.
+                    <strong>Data Export Preparation</strong>
+                    <p>Running queries to prepare data for export and reporting.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql23.png" alt="SQL Screenshot 22" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Test Execution 22</strong>
-                    Additional database execution screenshots and query validations.
+                    <strong>Constraint Validation Check</strong>
+                    <p>Verifying that all constraints are enforced during bulk operations.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql24.png" alt="SQL Screenshot 23" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Test Execution 23</strong>
-                    Additional database execution screenshots and query validations.
+                    <strong>User Activity Analysis</strong>
+                    <p>Analyzing user activity patterns through aggregation queries.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql25.png" alt="SQL Screenshot 24" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Test Execution 24</strong>
-                    Additional database execution screenshots and query validations.
+                    <strong>Session Data Integrity</strong>
+                    <p>Ensuring session data integrity across all related tables.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql26.png" alt="SQL Screenshot 25" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Test Execution 25</strong>
-                    Additional database execution screenshots and query validations.
+                    <strong>Final Verification Run</strong>
+                    <p>Executing final verification queries to confirm all test data is correct.</p>
                 </div>
             </div>
             <div class="gallery-item">
                 <img src="sql_screenshots/sql27.png" alt="SQL Screenshot 26" onclick="window.open(this.src)">
                 <div class="gallery-caption">
-                    <strong>Test Execution 26</strong>
-                    Additional database execution screenshots and query validations.
+                    <strong>Cleanup Operations</strong>
+                    <p>Executing cleanup operations and verifying no test data remains.</p>
                 </div>
             </div>
         </div>
