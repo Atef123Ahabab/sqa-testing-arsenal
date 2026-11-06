@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSTAD SQA Project Portfolio</title>
+    <style>
+        :root {
+            --sidebar-bg: #0f172a; --sidebar-text: #94a3b8; --sidebar-hover: #1e293b;
+            --main-bg: #f8fafc; --card-bg: #ffffff; --text-main: #1e293b; --text-light: #64748b;
+            --primary: #3b82f6; --primary-hover: #2563eb; --border: #e2e8f0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        body { display: flex; height: 100vh; background-color: var(--main-bg); color: var(--text-main); overflow: hidden; }
+        
+        /* Sidebar */
+        .sidebar { width: 280px; background-color: var(--sidebar-bg); display: flex; flex-direction: column; border-right: 1px solid var(--border); }
+        .sidebar-header { padding: 24px 20px; border-bottom: 1px solid var(--sidebar-hover); }
+        .sidebar-header h2 { color: #f8fafc; font-size: 1.2rem; }
+        .sidebar-header p { font-size: 0.85rem; color: var(--sidebar-text); margin-top: 5px; }
+        .nav-links { list-style: none; padding: 20px 12px; display: flex; flex-direction: column; gap: 6px; }
+        .nav-links li a { display: block; padding: 12px 16px; color: var(--sidebar-text); text-decoration: none; border-radius: 8px; cursor: pointer; font-weight: 500; font-size: 0.95rem; transition: all 0.2s; }
+        .nav-links li a:hover { background-color: var(--sidebar-hover); color: #f8fafc; }
+        .nav-links li a.active { background-color: var(--primary); color: white; }
+
+        /* Main Content */
+        .content { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+        .content-header { padding: 20px 40px; background-color: var(--card-bg); border-bottom: 1px solid var(--border); }
+        .content-header h1 { font-size: 1.5rem; font-weight: 600; }
+        .content-body { padding: 40px; overflow-y: auto; flex: 1; }
+
+        /* Sections */
+        .section { display: none; animation: fadeIn 0.4s ease; }
+        .section.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Cards */
+        .overview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 30px; }
+        .card { background: var(--card-bg); padding: 24px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border-top: 4px solid var(--primary); }
+        .card h3 { margin-bottom: 12px; font-size: 1.15rem; display: flex; align-items: center; gap: 10px; }
+        .card p { color: var(--text-light); line-height: 1.6; font-size: 0.95rem; }
+
+        /* Report Buttons */
+        .report-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        .report-card { background: var(--card-bg); padding: 24px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; gap: 16px; }
+        .report-card h4 { font-size: 1.1rem; color: var(--text-main); }
+        .btn { padding: 12px 16px; border-radius: 8px; text-decoration: none; font-size: 0.9rem; font-weight: 600; text-align: center; transition: all 0.2s; cursor: pointer; border: none; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: var(--primary-hover); }
+        .btn-download { background: #f1f5f9; color: var(--text-main); border: 1px solid var(--border); }
+        .btn-download:hover { background: #e2e8f0; }
+
+        /* Embedded PDF Viewer */
+        .pdf-viewer { width: 100%; height: 70vh; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; display: none; margin-top: 20px; background: #525659; }
+        iframe { width: 100%; height: 100%; border: none; }
+        .back-btn { display: none; margin-bottom: 20px; background: var(--text-main); color: white; padding: 10px 20px; border-radius: 6px; cursor: pointer; border: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h2>OSTAD SQA Project</h2>
+            <p>Comprehensive QA Assessment</p>
+        </div>
+        <ul class="nav-links">
+            <li><a class="nav-link active" data-target="home">🏠 Project Overview</a></li>
+            <li><a class="nav-link" data-target="web-testing">🌐 Web UI Testing</a></li>
+            <li><a class="nav-link" data-target="api-testing">🔌 API Testing</a></li>
+            <li><a class="nav-link" data-target="db-testing">🗄️ Database Testing</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="content">
+        <header class="content-header">
+            <h1 id="page-title">Project Overview</h1>
+        </header>
+
+        <div class="content-body">
+            <!-- HOME -->
+            <section id="home" class="section active">
+                <div class="overview-grid">
+                    <div class="card">
+                        <h3>🐞 Web UI Testing</h3>
+                        <p>Exploratory and scripted testing for Claude.ai. Covers input boundaries, bug reporting, and Go/No-Go recommendations.</p>
+                    </div>
+                    <div class="card" style="border-top-color: #eab308;">
+                        <h3>🔌 API Test Design</h3>
+                        <p>17 test cases designed for a Chat Completion endpoint. Covers Auth, Validation, Rate Limiting, and includes Postman artifacts.</p>
+                    </div>
+                    <div class="card" style="border-top-color: #10b981;">
+                        <h3>🗄️ Database Testing</h3>
+                        <p>MySQL testing for a SaaS schema. Includes CRUD, Foreign Keys, CASCADE deletes, and Transaction rollbacks.</p>
+                    </div>
+                </div>
+                <div class="card" style="border-top-color: #6366f1;">
+                    <h3>ℹ️ Interactive Project Dashboard</h3>
+                    <p>Welcome to the interactive QA portfolio. Use the sidebar to navigate through different testing phases. Clicking "View PDF" will open the reports directly inside this window so you can read them without downloading!</p>
+                </div>
+            </section>
+
+            <!-- WEB TESTING -->
+            <section id="web-testing" class="section">
+                <button class="back-btn" onclick="closePdf()">← Back to Reports</button>
+                <div class="report-grid" id="web-reports-grid">
+                    <div class="report-card">
+                        <h4>Final Test Summary</h4>
+                        <p style="font-size:0.85rem; color:#64748b;">The Go/No-Go recommendation and top risks found during scripted testing.</p>
+                        <button onclick="openPdf('Part C — Exploratory Testing & Defect Reporting.pdf')" class="btn btn-primary">View PDF</button>
+                    </div>
+                    <div class="report-card">
+                        <h4>Bug Reports</h4>
+                        <p style="font-size:0.85rem; color:#64748b;">Detailed documentation of the 4 bugs found during the 60-minute exploratory session.</p>
+                        <button onclick="openPdf('bug report .pdf')" class="btn btn-primary">View PDF</button>
+                    </div>
+                    <div class="report-card">
+                        <h4>Test Cases & Scenarios</h4>
+                        <p style="font-size:0.85rem; color:#64748b;">The scripted test cases covering authentication, core chat, and response controls.</p>
+                        <button onclick="openPdf('ClaudeAI_Test_Scenarios_TestCases.pdf')" class="btn btn-primary">View PDF</button>
+                    </div>
+                </div>
+                <div class="pdf-viewer" id="pdf-container">
+                    <iframe id="pdf-frame" src=""></iframe>
+                </div>
+            </section>
+
+            <!-- API TESTING -->
+            <section id="api-testing" class="section">
+                <div class="report-grid">
+                    <div class="report-card">
+                        <h4>API Test Design (Excel)</h4>
+                        <p style="font-size:0.85rem; color:#64748b;">17 designed test cases covering Positive, Auth, Validation, Rate Limiting with simulated outputs.</p>
+                        <a href="Q3B_API_Test_Design (1).xlsx" download class="btn btn-download">Download Excel</a>
+                    </div>
+                    <div class="report-card">
+                        <h4>Postman Collection</h4>
+                        <p style="font-size:0.85rem; color:#64748b;">The exported JSON collection to import into Postman for API execution.</p>
+                        <a href="Api testing.postman_collection.json" download class="btn btn-download">Download JSON</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DB TESTING -->
+            <section id="db-testing" class="section">
+                <button class="back-btn" onclick="closePdf()">← Back to Reports</button>
+                <div class="report-grid" id="db-reports-grid">
+                    <div class="report-card">
+                        <h4>SQL Test Script</h4>
+                        <p style="font-size:0.85rem; color:#64748b;">The complete SQL queries and results for schema inspection, CRUD, and Transactions.</p>
+                        <button onclick="openPdf('Question 2 — Database Testing answer script.pdf')" class="btn btn-primary">View PDF</button>
+                    </div>
+                    <div class="report-card">
+                        <h4>Database Setup Script</h4>
+                        <p style="font-size:0.85rem; color:#64748b;">Python script to drop, recreate, and seed the ai_saas_db MySQL schema.</p>
+                        <a href="setup_database.py" download class="btn btn-download">Download .py File</a>
+                    </div>
+                </div>
+                <div class="pdf-viewer" id="pdf-container-db">
+                    <iframe id="pdf-frame-db" src=""></iframe>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        // Navigation
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.section');
+        const pageTitle = document.getElementById('page-title');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                navLinks.forEach(l => l.classList.remove('active'));
+                sections.forEach(s => s.classList.remove('active'));
+                this.classList.add('active');
+                const targetId = this.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+                pageTitle.textContent = this.textContent.replace(/[^\w\s&]/g, '').trim();
+                closePdf(); // Reset PDF view when changing tabs
+            });
+        });
+
+        // PDF Viewer Logic
+        function openPdf(fileUrl) {
+            document.getElementById('web-reports-grid').style.display = 'none';
+            document.getElementById('db-reports-grid').style.display = 'none';
+            document.querySelectorAll('.back-btn').forEach(btn => btn.style.display = 'block');
+            
+            // Determine which section we are in
+            const isWeb = document.getElementById('web-testing').classList.contains('active');
+            const container = isWeb ? document.getElementById('pdf-container') : document.getElementById('pdf-container-db');
+            const frame = isWeb ? document.getElementById('pdf-frame') : document.getElementById('pdf-frame-db');
+            
+            frame.src = fileUrl;
+            container.style.display = 'block';
+        }
+
+        function closePdf() {
+            document.getElementById('web-reports-grid').style.display = 'grid';
+            document.getElementById('db-reports-grid').style.display = 'grid';
+            document.querySelectorAll('.back-btn').forEach(btn => btn.style.display = 'none');
+            
+            document.getElementById('pdf-container').style.display = 'none';
+            document.getElementById('pdf-container-db').style.display = 'none';
+            document.getElementById('pdf-frame').src = '';
+            document.getElementById('pdf-frame-db').src = '';
+        }
+    </script>
+</body>
+</html>
