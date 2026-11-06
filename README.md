@@ -3,7 +3,7 @@
 Welcome to my Software Quality Assurance (SQA) portfolio project. This repository contains a complete, end-to-end QA assessment covering Web UI testing, API test design, Database testing, and Exploratory defect reporting for AI-based applications (Claude.ai & Thaura.ai).
 
 ## 🌟 Live Interactive Dashboard
-Instead of just reading raw PDFs, this project includes a custom-built, user-friendly Web UI Dashboard. 
+Instead of just reading raw PDFs, this project includes a custom-built, user-friendly Web UI Dashboard.
 
 **To view the dashboard locally:**
 1. Clone the repository.
@@ -31,7 +31,7 @@ Instead of just reading raw PDFs, this project includes a custom-built, user-fri
 ### 3. Database Testing (`ai_saas_db`)
 - Designed and executed MySQL tests for a 6-table AI SaaS schema.
 - Tested Foreign Keys, CASCADE deletes, CRUD operations, and Transaction Rollbacks.
-- **Features:** 
+- **Features:**
   - **SQL Screenshots Gallery:** View 27 high-quality screenshots of actual test executions with detailed captions explaining each step.
   - **Database Analysis:** A dedicated section breaking down the "Why" and "How" behind every database test (Negative testing, Transaction safety, etc.).
 - **Artifacts:** `Question_2_DB.pdf`, `setup_database.py`
@@ -41,6 +41,7 @@ Instead of just reading raw PDFs, this project includes a custom-built, user-fri
 - **Database:** MySQL
 - **Scripting:** Python (Database setup)
 - **Frontend UI:** HTML5, CSS3, Vanilla JavaScript (SPA layout with dark mode)
+- **Automation Tooling:** Node.js, http-server, Playwright
 - **Version Control:** Git, GitHub
 
 ---
