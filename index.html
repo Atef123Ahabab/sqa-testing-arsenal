@@ -65,6 +65,16 @@
         .analysis-card p { font-size: 0.9rem; color: var(--text-light); margin-bottom: 8px; line-height: 1.5; }
         .analysis-card code { background: #f1f5f9; padding: 2px 4px; border-radius: 4px; font-size: 0.85rem; color: #e11d48; }
 
+    
+        /* Updated Gallery Cards */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+        .gallery-item { background: var(--card-bg); border-radius: 12px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.2s ease, box-shadow 0.2s ease; display: flex; flex-direction: column; }
+        .gallery-item:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+        .gallery-item img { width: 100%; height: auto; cursor: pointer; border-bottom: 1px solid var(--border); }
+        .gallery-caption { padding: 15px; font-size: 0.9rem; color: var(--text-main); flex-grow: 1; }
+        .gallery-caption strong { display: block; margin-bottom: 5px; color: var(--primary); font-size: 1.05rem; }
+        .gallery-caption span { color: var(--text-light); font-size: 0.85rem; display: block; margin-top: 4px;}
+
     </style>
 </head>
 <body>
@@ -178,36 +188,197 @@
                 <p style="color: var(--text-light); margin-bottom: 20px;">These screenshots demonstrate the execution of Primary Key/Foreign Key inspections, Constraint testing (Unique/ENUM), CRUD operations, and Commit/Rollback transactions.</p>
                 
                 <div class="gallery">
-    <img src="sql_screenshots/sql1.png" alt="SQL Screenshot 1" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql2.png" alt="SQL Screenshot 2" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql3.png" alt="SQL Screenshot 3" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql4.png" alt="SQL Screenshot 4" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql5.png" alt="SQL Screenshot 5" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql6.png" alt="SQL Screenshot 6" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql7.png" alt="SQL Screenshot 7" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql8.png" alt="SQL Screenshot 8" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql9.png" alt="SQL Screenshot 9" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql10.png" alt="SQL Screenshot 10" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql11.png" alt="SQL Screenshot 11" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql12.png" alt="SQL Screenshot 12" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql13.png" alt="SQL Screenshot 13" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql14.png" alt="SQL Screenshot 14" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql15.png" alt="SQL Screenshot 15" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql16.png" alt="SQL Screenshot 16" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql17.png" alt="SQL Screenshot 17" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql18.png" alt="SQL Screenshot 18" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql19.png" alt="SQL Screenshot 19" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql20.png" alt="SQL Screenshot 20" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql21.png" alt="SQL Screenshot 21" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql22.png" alt="SQL Screenshot 22" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql23.png" alt="SQL Screenshot 23" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql24.png" alt="SQL Screenshot 24" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql25.png" alt="SQL Screenshot 25" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql26.png" alt="SQL Screenshot 26" onclick="window.open(this.src)">
-    <img src="sql_screenshots/sql27.png" alt="SQL Screenshot 27" onclick="window.open(this.src)">
-                    <img src="sql_screenshots/sql28.png" alt="SQL Screenshot 28" onclick="window.open(this.src)">
-                    <img src="sql_screenshots/sql28.png" alt="SQL Screenshot 28" onclick="window.open(this.src)">
-</div>
+
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql1.png" alt="SQL Screenshot 1" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Schema Inspection</strong>
+                    Verifying columns and data types for users and usage logs.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql2.png" alt="SQL Screenshot 2" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Primary Keys Check</strong>
+                    Ensuring all 6 tables have a Primary Key for unique row identification.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql3.png" alt="SQL Screenshot 3" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Foreign Keys Check</strong>
+                    Verifying relational integrity between tables (e.g., messages to sessions).
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql4.png" alt="SQL Screenshot 4" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Duplicate Email Test</strong>
+                    Negative testing: Attempting to insert a duplicate email to test UNIQUE constraint.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql5.png" alt="SQL Screenshot 5" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Invalid Plan Test</strong>
+                    Negative testing: Attempting to insert a non-existent plan to test ENUM constraint.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql6.png" alt="SQL Screenshot 6" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Update User Plan</strong>
+                    CRUD testing: Updating a user's plan to 'pro' and verifying persistence.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql7.png" alt="SQL Screenshot 7" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>CASCADE Delete Test</strong>
+                    Data integrity: Deleting a user to verify related sessions/messages are also removed.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql8.png" alt="SQL Screenshot 8" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Transaction ROLLBACK</strong>
+                    Testing transaction safety by rolling back a plan change.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql9.png" alt="SQL Screenshot 9" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Transaction COMMIT</strong>
+                    Testing successful transaction saving by committing a plan change.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql10.png" alt="SQL Screenshot 10" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Complex JOIN Query</strong>
+                    Performance testing: Aggregating data across multiple tables for analytics.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql11.png" alt="SQL Screenshot 11" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Test Execution 11</strong>
+                    Additional database execution screenshots and query validations.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql12.png" alt="SQL Screenshot 12" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Test Execution 12</strong>
+                    Additional database execution screenshots and query validations.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql13.png" alt="SQL Screenshot 13" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Test Execution 13</strong>
+                    Additional database execution screenshots and query validations.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql14.png" alt="SQL Screenshot 14" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Test Execution 14</strong>
+                    Additional database execution screenshots and query validations.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql15.png" alt="SQL Screenshot 15" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Test Execution 15</strong>
+                    Additional database execution screenshots and query validations.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql16.png" alt="SQL Screenshot 16" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Test Execution 16</strong>
+                    Additional database execution screenshots and query validations.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql17.png" alt="SQL Screenshot 17" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Test Execution 17</strong>
+                    Additional database execution screenshots and query validations.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql18.png" alt="SQL Screenshot 18" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Test Execution 18</strong>
+                    Additional database execution screenshots and query validations.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql19.png" alt="SQL Screenshot 19" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Test Execution 19</strong>
+                    Additional database execution screenshots and query validations.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql20.png" alt="SQL Screenshot 20" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Test Execution 20</strong>
+                    Additional database execution screenshots and query validations.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql21.png" alt="SQL Screenshot 21" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Test Execution 21</strong>
+                    Additional database execution screenshots and query validations.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql22.png" alt="SQL Screenshot 22" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Test Execution 22</strong>
+                    Additional database execution screenshots and query validations.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql23.png" alt="SQL Screenshot 23" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Test Execution 23</strong>
+                    Additional database execution screenshots and query validations.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql24.png" alt="SQL Screenshot 24" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Test Execution 24</strong>
+                    Additional database execution screenshots and query validations.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql25.png" alt="SQL Screenshot 25" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Test Execution 25</strong>
+                    Additional database execution screenshots and query validations.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql26.png" alt="SQL Screenshot 26" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Test Execution 26</strong>
+                    Additional database execution screenshots and query validations.
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="sql_screenshots/sql27.png" alt="SQL Screenshot 27" onclick="window.open(this.src)">
+                <div class="gallery-caption">
+                    <strong>Test Execution 27</strong>
+                    Additional database execution screenshots and query validations.
+                </div>
+            </div>
+        </div>
 
             </section>
             <!-- DETAILED DATABASE ANALYSIS SECTION -->
